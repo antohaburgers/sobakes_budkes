@@ -66,3 +66,7 @@ test('long mixed-shape session remains finite without leaking bodies outside the
  assert.ok(m.merges>5);assert.ok(m.dogs.size<120);
  for(const d of m.dogs.values()){assert.ok(Number.isFinite(d.body.position.x+d.body.position.y+d.body.angle));assert.ok(d.body.bounds.max.y<=FIELD.floor+2);}m.destroy();
 });
+test('merge audio cadence accepts exactly half of merge events',async()=>{
+ const {MergeCadence}=await import('../src/audio/sound');const cadence=new MergeCadence();
+ assert.deepEqual(Array.from({length:8},()=>cadence.accept()),[true,false,true,false,true,false,true,false]);
+});

@@ -7,7 +7,7 @@ export class DogScene extends Phaser.Scene {
   private sprites=new Map<number,Phaser.GameObjects.Image>();
   private ghost!:Phaser.GameObjects.Image; private guide!:Phaser.GameObjects.Graphics;private debug!:Phaser.GameObjects.Graphics;
   private dangerLine!:Phaser.GameObjects.Graphics;
-  private aim=210;private ghostLevel=0;private metrics:ReturnType<typeof makeDog>|null=null;
+  private aim=FIELD.width/2;private ghostLevel=0;private metrics:ReturnType<typeof makeDog>|null=null;
   private activePointer:number|null=null;private ready=false;private debugEnabled=new URLSearchParams(location.search).has('debug');
   constructor(model:GameModel,onReady:()=>void,onTick:()=>void,onEffect:(e:GameEvent)=>void){
     super('dogs');this.model=model;this.onReady=onReady;this.onTick=onTick;this.onEffect=onEffect;
@@ -20,7 +20,7 @@ export class DogScene extends Phaser.Scene {
   create(){
     if(LEVELS.some(d=>!this.textures.exists(`dog${d.level}`)))return;
     this.drawRoom();this.dangerLine=this.add.graphics().setDepth(20);this.guide=this.add.graphics().setDepth(2);this.debug=this.add.graphics().setDepth(30);
-    this.ghost=this.add.image(210,50,'dog1').setAlpha(.72).setDepth(5);
+    this.ghost=this.add.image(FIELD.width/2,40,'dog1').setAlpha(.72).setDepth(5);
     this.input.on('pointerdown',(p:Phaser.Input.Pointer)=>{if(this.model.state!=='playing'||this.activePointer!==null)return;this.activePointer=p.id;this.aim=this.model.clampX(p.x);});
     this.input.on('pointermove',(p:Phaser.Input.Pointer)=>{if(this.model.state==='playing'&&(this.activePointer===null||p.id===this.activePointer))this.aim=this.model.clampX(p.x);});
     this.input.on('pointerup',(p:Phaser.Input.Pointer)=>{if(this.activePointer!==p.id)return;this.activePointer=null;this.aim=this.model.clampX(p.x);this.model.drop(this.aim);});
@@ -36,18 +36,17 @@ export class DogScene extends Phaser.Scene {
   }
   private drawRoom(){
     const g=this.add.graphics();
-    g.fillStyle(0xf9f6ee);g.fillRoundedRect(0,0,420,650,20);
-    // Gentle wallpaper and a wooden toy box, drawn around the physics field.
-    for(let x=14;x<420;x+=28)for(let y=15;y<610;y+=28){g.fillStyle(0x718974,.07);g.fillCircle(x,y,1.2);}
-    g.fillStyle(0xe9e1ce);g.fillRect(12,615,396,35);
-    g.fillStyle(0xcaa984);g.fillRoundedRect(14,88,16,536,7);g.fillRoundedRect(390,88,16,536,7);
-    g.fillStyle(0xe2c3a0);g.fillRoundedRect(10,84,22,14,5);g.fillRoundedRect(388,84,22,14,5);
-    g.fillStyle(0xcaa984);g.fillRoundedRect(14,609,392,24,8);
-    g.fillStyle(0xd9bb95);g.fillRoundedRect(19,613,382,10,4);
-    g.lineStyle(1,0x9d7b54,.22);g.lineBetween(42,615,42,630);g.lineBetween(375,614,375,630);
-    for(const x of [23,397]){g.fillStyle(0x886d50,.5);g.fillCircle(x,104,2);g.fillCircle(x,598,2);}
-    this.add.text(210,634,'ОСТОРОЖНО, ЦВЕРГИ!',{fontFamily:'sans-serif',fontSize:'9px',color:'#8b795e',letterSpacing:2}).setOrigin(.5);
+    const {width,height,left,right,floor,danger}=FIELD;
+    g.fillStyle(0xf9f6ee);g.fillRoundedRect(0,0,width,height,14);
+    for(let x=14;x<width;x+=28)for(let y=15;y<floor;y+=28){g.fillStyle(0x718974,.06);g.fillCircle(x,y,1.2);}
+    const wallTop=danger-16;
+    g.fillStyle(0xcaa984);g.fillRoundedRect(left-15,wallTop,15,floor-wallTop+18,5);g.fillRoundedRect(right,wallTop,15,floor-wallTop+18,5);
+    g.fillStyle(0xe2c3a0);g.fillRoundedRect(left-18,wallTop-3,21,11,4);g.fillRoundedRect(right-3,wallTop-3,21,11,4);
+    g.fillStyle(0xcaa984);g.fillRoundedRect(left-15,floor,right-left+30,18,6);
+    g.fillStyle(0xd9bb95);g.fillRoundedRect(left-10,floor+3,right-left+20,8,3);
+    for(const x of [left-7,right+7]){g.fillStyle(0x886d50,.45);g.fillCircle(x,wallTop+18,1.8);g.fillCircle(x,floor-12,1.8);}
   }
+
   update(_time:number,delta:number){
     if(!this.ready)return;
     this.model.advance(delta);

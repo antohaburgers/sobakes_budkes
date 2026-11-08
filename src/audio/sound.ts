@@ -1,5 +1,9 @@
 import { asset } from '../config/game';
 export type SoundEvent={type:'impact'|'merge'|'supermerge';pair?:string};
+export class MergeCadence {
+  private count=0;
+  accept(){return this.count++ % 2 === 0;}
+}
 export class SoundGate {
   last=-Infinity; pairs=new Map<string,number>();
   allow(event:SoundEvent, now:number){
@@ -19,6 +23,13 @@ export class SoundPlayer {
   private voices:{source:AudioBufferSourceNode;gain:GainNode}[]=[];
   private gate=new SoundGate();private pending:{event:SoundEvent;time:number}|null=null;
   private loading:Promise<void>|null=null; private generation=0;
+  private cadence=new MergeCadence();
+  private music:HTMLAudioElement|null=null;private musicWanted=false;
+  startMusic(){
+    this.musicWanted=true;
+    if(!this.music){this.music=new Audio(asset('assets/music/caf-serenade_90349.mp3'));this.music.loop=true;this.music.volume=.18;this.music.preload='auto';}
+    if(!this.muted)void this.music.play().catch(()=>{});
+  }
   constructor(){try{this.muted=localStorage.getItem('sobakes:muted')==='true';}catch{}}
   async unlock(){
     try{
@@ -26,6 +37,7 @@ export class SoundPlayer {
       if(!Ctx)return;
       if(!this.context){this.context=new Ctx();this.master=this.context.createGain();this.master.gain.value=.7;this.master.connect(this.context.destination);}
       await this.context.resume();
+      if(this.musicWanted&&!this.muted&&this.music?.paused)void this.music.play().catch(()=>{});
       if(!this.loading)this.loading=this.load();
       await this.loading;
     }catch{/* Play remains available even if a browser blocks or cannot decode audio. */}
@@ -40,9 +52,14 @@ export class SoundPlayer {
       this.buffers=result.flatMap(r=>r.status==='fulfilled'?[r.value as AudioBuffer]:[]);this.readyCount=this.buffers.length;
     }catch{this.buffers=[];}
   }
-  toggle(){this.muted=!this.muted;this.stop();try{localStorage.setItem('sobakes:muted',String(this.muted));}catch{};if(!this.muted)void this.unlock();return this.muted;}
+  toggle(){
+    const wanted=this.musicWanted;this.muted=!this.muted;this.stop();this.musicWanted=wanted;
+    try{localStorage.setItem('sobakes:muted',String(this.muted));}catch{}
+    if(!this.muted){void this.unlock();if(wanted)this.startMusic();}return this.muted;
+  }
   event(event:SoundEvent,now=performance.now()){
     if(this.muted||!this.context||this.context.state!=='running'||!this.buffers.length)return;
+    if(event.type!=='impact'&&!this.cadence.accept())return;
     if(this.voices.length>=2&&event.type==='impact')return;
     if(!this.gate.allow(event,now)){
       if(event.type!=='impact'&&(!this.pending||event.type==='supermerge'||this.pending.event.type!=='supermerge'))this.pending={event,time:now};return;
@@ -71,5 +88,5 @@ export class SoundPlayer {
       oldest.source.onended=()=>{oldest.source.disconnect();oldest.gain.disconnect();start();};
     }else start();
   }
-  stop(){this.generation++;this.pending=null;this.gate.reset();for(const v of this.voices){v.source.onended=null;try{v.source.stop();}catch{}v.source.disconnect();v.gain.disconnect();}this.voices=[];}
+  stop(){this.musicWanted=false;this.music?.pause();this.generation++;this.pending=null;this.gate.reset();for(const v of this.voices){v.source.onended=null;try{v.source.stop();}catch{}v.source.disconnect();v.gain.disconnect();}this.voices=[];}
 }

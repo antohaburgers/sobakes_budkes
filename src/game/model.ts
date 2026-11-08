@@ -41,7 +41,7 @@ export class GameModel {
     Composite.add(this.engine.world,[
       Bodies.rectangle(FIELD.left-20,FIELD.floor/2,40,FIELD.floor+400,{isStatic:true,label:'left'}),
       Bodies.rectangle(FIELD.right+20,FIELD.floor/2,40,FIELD.floor+400,{isStatic:true,label:'right'}),
-      Bodies.rectangle(210,FIELD.floor+24,440,48,{isStatic:true,label:'floor'})
+      Bodies.rectangle(FIELD.width/2,FIELD.floor+24,FIELD.width+40,48,{isStatic:true,label:'floor'})
     ]);
     Events.on(this.engine,'collisionStart',(event)=>{
       for(const p of event.pairs){
@@ -129,7 +129,7 @@ export class GameModel {
       if(Math.abs(d.body.angularVelocity)>.18)Body.setAngularVelocity(d.body,Math.sign(d.body.angularVelocity)*.18);
       if(d.body.bounds.max.y>FIELD.floor+10||d.body.bounds.min.x<FIELD.left-10||d.body.bounds.max.x>FIELD.right+10)this.fit(d.body);
     }
-    if(this.danger.update(danger,RULES.step)){this.state='gameover';this.onEvent({type:'gameover',x:210,y:FIELD.danger});}
+    if(this.danger.update(danger,RULES.step)){this.state='gameover';this.onEvent({type:'gameover',x:FIELD.width/2,y:FIELD.danger});}
   }
   private fit(body:Matter.Body){
     let dx=0,dy=0;if(body.bounds.min.x<FIELD.left+1)dx=FIELD.left+1-body.bounds.min.x;
