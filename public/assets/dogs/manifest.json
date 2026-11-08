@@ -19,7 +19,8 @@
         898,
         957
       ],
-      "colliderStatus": "not-authored"
+      "colliderStatus": "authored",
+      "colliderConfig": "src/config/colliders.json"
     },
     {
       "level": 2,
@@ -33,7 +34,8 @@
         845,
         953
       ],
-      "colliderStatus": "not-authored"
+      "colliderStatus": "authored",
+      "colliderConfig": "src/config/colliders.json"
     },
     {
       "level": 3,
@@ -47,7 +49,8 @@
         862,
         951
       ],
-      "colliderStatus": "not-authored"
+      "colliderStatus": "authored",
+      "colliderConfig": "src/config/colliders.json"
     },
     {
       "level": 4,
@@ -61,7 +64,8 @@
         954,
         714
       ],
-      "colliderStatus": "not-authored"
+      "colliderStatus": "authored",
+      "colliderConfig": "src/config/colliders.json"
     },
     {
       "level": 5,
@@ -75,7 +79,8 @@
         873,
         951
       ],
-      "colliderStatus": "not-authored"
+      "colliderStatus": "authored",
+      "colliderConfig": "src/config/colliders.json"
     },
     {
       "level": 6,
@@ -89,7 +94,8 @@
         943,
         815
       ],
-      "colliderStatus": "not-authored"
+      "colliderStatus": "authored",
+      "colliderConfig": "src/config/colliders.json"
     },
     {
       "level": 7,
@@ -103,7 +109,8 @@
         818,
         952
       ],
-      "colliderStatus": "not-authored"
+      "colliderStatus": "authored",
+      "colliderConfig": "src/config/colliders.json"
     },
     {
       "level": 8,
@@ -117,7 +124,8 @@
         926,
         870
       ],
-      "colliderStatus": "not-authored"
+      "colliderStatus": "authored",
+      "colliderConfig": "src/config/colliders.json"
     },
     {
       "level": 9,
@@ -131,7 +139,8 @@
         731,
         957
       ],
-      "colliderStatus": "not-authored"
+      "colliderStatus": "authored",
+      "colliderConfig": "src/config/colliders.json"
     },
     {
       "level": 10,
@@ -145,7 +154,8 @@
         962,
         713
       ],
-      "colliderStatus": "not-authored"
+      "colliderStatus": "authored",
+      "colliderConfig": "src/config/colliders.json"
     },
     {
       "level": 11,
@@ -159,7 +169,8 @@
         960,
         942
       ],
-      "colliderStatus": "not-authored"
+      "colliderStatus": "authored",
+      "colliderConfig": "src/config/colliders.json"
     }
   ]
 }
