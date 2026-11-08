@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "clips": [
+    {
+      "id": "myinstants",
+      "file": "myinstants.mp3",
+      "events": [
+        "impact",
+        "merge",
+        "supermerge"
+      ],
+      "weight": 1,
+      "durationSeconds": 1.253878,
+      "bytes": 51347,
+      "sha256": "8c7a465a5c098ec3dea2f32ce041e584d582da6e278100760cd4e102f3f754be"
+    },
+    {
+      "id": "myinstants1",
+      "file": "myinstants1.mp3",
+      "events": [
+        "impact",
+        "merge",
+        "supermerge"
+      ],
+      "weight": 1,
+      "durationSeconds": 1.697959,
+      "bytes": 28588,
+      "sha256": "48153af16bf2409769599a313c193f9613e4822e2f6f5945e44dbac1b2db539d"
+    }
+  ],
+  "playback": {
+    "impactGain": 0.28,
+    "mergeGain": 0.45,
+    "masterGain": 0.7,
+    "globalCooldownMs": 220,
+    "pairCooldownMs": 700,
+    "maxVoices": 2,
+    "minImpactNormalSpeed": 1.5,
+    "minImpactNormalSpeedUnits": "Matter.js velocity at fixed 60 Hz",
+    "eventPriority": [
+      "supermerge",
+      "merge",
+      "impact"
+    ]
+  }
+}
