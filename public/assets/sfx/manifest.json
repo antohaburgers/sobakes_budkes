@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "clips": [
     {
       "id": "myinstants",
@@ -26,6 +26,123 @@
       "durationSeconds": 1.697959,
       "bytes": 28588,
       "sha256": "48153af16bf2409769599a313c193f9613e4822e2f6f5945e44dbac1b2db539d"
+    },
+    {
+      "id": "myinstants3",
+      "file": "myinstants3.mp3",
+      "events": [
+        "impact",
+        "merge",
+        "supermerge"
+      ],
+      "weight": 1,
+      "durationSeconds": 1.436735,
+      "bytes": 26863,
+      "sha256": "11df1b9935b6cf8e36108f80656d504956646190033d22fd0543203ad591bf43"
+    },
+    {
+      "id": "myinstants4",
+      "file": "myinstants4.mp3",
+      "events": [
+        "impact",
+        "merge",
+        "supermerge"
+      ],
+      "weight": 1,
+      "durationSeconds": 1.906939,
+      "bytes": 30891,
+      "sha256": "41edbeb32801d20f7bc0966f03e21d71359e2bd2c824c1649e5280a9f575513f"
+    },
+    {
+      "id": "myinstants5",
+      "file": "myinstants5.mp3",
+      "events": [
+        "impact",
+        "merge",
+        "supermerge"
+      ],
+      "weight": 1,
+      "durationSeconds": 0.862041,
+      "bytes": 14138,
+      "sha256": "059c7e7e8812edf5bb938b0c627327f57ee14e115dcbfac4548a4f769c4d715c"
+    },
+    {
+      "id": "myinstants6",
+      "file": "myinstants6.mp3",
+      "events": [
+        "impact",
+        "merge",
+        "supermerge"
+      ],
+      "weight": 1,
+      "durationSeconds": 4.623673,
+      "bytes": 99894,
+      "sha256": "2a1a36e036c776bc030bf79ef69e312e6bbe0bc96b9ee0f30956ff4aad30ae4b"
+    },
+    {
+      "id": "myinstants7",
+      "file": "myinstants7.mp3",
+      "events": [
+        "impact",
+        "merge",
+        "supermerge"
+      ],
+      "weight": 1,
+      "durationSeconds": 4.205714,
+      "bytes": 67637,
+      "sha256": "5118c619f0ab62e181f32d9eacd490441b49aaa7bb8e1be1b6b51e7a3c25debc"
+    },
+    {
+      "id": "myinstants8",
+      "file": "myinstants8.mp3",
+      "events": [
+        "impact",
+        "merge",
+        "supermerge"
+      ],
+      "weight": 1,
+      "durationSeconds": 1.9331,
+      "bytes": 77462,
+      "sha256": "dbbde7a7920b680ab42a6b8cab49dbd59e24841878bb622fb889669f9fae286f"
+    },
+    {
+      "id": "myinstants9",
+      "file": "myinstants9.mp3",
+      "events": [
+        "impact",
+        "merge",
+        "supermerge"
+      ],
+      "weight": 1,
+      "durationSeconds": 3.239184,
+      "bytes": 52079,
+      "sha256": "99180785e8781d5210f64eb96871500db9210aeb5e132bbabf70da41ab7ee853"
+    },
+    {
+      "id": "myinstants10",
+      "file": "myinstants10.mp3",
+      "events": [
+        "impact",
+        "merge",
+        "supermerge"
+      ],
+      "weight": 1,
+      "durationSeconds": 1.08,
+      "bytes": 27893,
+      "sha256": "b88e3ff1bfd3af80050579843e5fb32ea3bee48011fb75d741f8f85ebbb1511a"
+    },
+    {
+      "id": "myinstants11",
+      "file": "myinstants11.mp3",
+      "events": [
+        "impact",
+        "merge",
+        "supermerge"
+      ],
+      "weight": 1,
+      "durationSeconds": 4.181333,
+      "bytes": 108931,
+      "sha256": "29ace6e63e3ef2596e8538b127bf6d63733d95268231243e9d9286b6d37442b3"
     }
   ],
   "playback": {
@@ -42,5 +159,10 @@
       "merge",
       "impact"
     ]
+  },
+  "selection": {
+    "mode": "uniform",
+    "source": "all MP3 entries in clips",
+    "allowConsecutiveRepeat": true
   }
 }
