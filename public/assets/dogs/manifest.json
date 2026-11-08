@@ -1,0 +1,165 @@
+{
+  "version": 1,
+  "canvas": {
+    "width": 1024,
+    "height": 1024
+  },
+  "alpha": true,
+  "camera": "side three-quarter",
+  "levels": [
+    {
+      "level": 1,
+      "name": "Цверг-малыш",
+      "png": "assets/masters/dogs/schnauzer_01.png",
+      "webp": "public/assets/dogs/schnauzer_01.webp",
+      "url": "/assets/dogs/schnauzer_01.webp",
+      "visualBounds": [
+        126,
+        66,
+        898,
+        957
+      ],
+      "colliderStatus": "not-authored"
+    },
+    {
+      "level": 2,
+      "name": "Цверг-шкодник",
+      "png": "assets/masters/dogs/schnauzer_02.png",
+      "webp": "public/assets/dogs/schnauzer_02.webp",
+      "url": "/assets/dogs/schnauzer_02.webp",
+      "visualBounds": [
+        144,
+        68,
+        845,
+        953
+      ],
+      "colliderStatus": "not-authored"
+    },
+    {
+      "level": 3,
+      "name": "Цверг-растеряша",
+      "png": "assets/masters/dogs/schnauzer_03.png",
+      "webp": "public/assets/dogs/schnauzer_03.webp",
+      "url": "/assets/dogs/schnauzer_03.webp",
+      "visualBounds": [
+        185,
+        78,
+        862,
+        951
+      ],
+      "colliderStatus": "not-authored"
+    },
+    {
+      "level": 4,
+      "name": "Цверг-колбаса",
+      "png": "assets/masters/dogs/schnauzer_04.png",
+      "webp": "public/assets/dogs/schnauzer_04.webp",
+      "url": "/assets/dogs/schnauzer_04.webp",
+      "visualBounds": [
+        72,
+        290,
+        954,
+        714
+      ],
+      "colliderStatus": "not-authored"
+    },
+    {
+      "level": 5,
+      "name": "Цверг-пузан",
+      "png": "assets/masters/dogs/schnauzer_05.png",
+      "webp": "public/assets/dogs/schnauzer_05.webp",
+      "url": "/assets/dogs/schnauzer_05.webp",
+      "visualBounds": [
+        155,
+        72,
+        873,
+        951
+      ],
+      "colliderStatus": "not-authored"
+    },
+    {
+      "level": 6,
+      "name": "Цверг-кувыркун",
+      "png": "assets/masters/dogs/schnauzer_06.png",
+      "webp": "public/assets/dogs/schnauzer_06.webp",
+      "url": "/assets/dogs/schnauzer_06.webp",
+      "visualBounds": [
+        67,
+        296,
+        943,
+        815
+      ],
+      "colliderStatus": "not-authored"
+    },
+    {
+      "level": 7,
+      "name": "Цверг-вертолёт",
+      "png": "assets/masters/dogs/schnauzer_07.png",
+      "webp": "public/assets/dogs/schnauzer_07.webp",
+      "url": "/assets/dogs/schnauzer_07.webp",
+      "visualBounds": [
+        219,
+        65,
+        818,
+        952
+      ],
+      "colliderStatus": "not-authored"
+    },
+    {
+      "level": 8,
+      "name": "Цверг-соня",
+      "png": "assets/masters/dogs/schnauzer_08.png",
+      "webp": "public/assets/dogs/schnauzer_08.webp",
+      "url": "/assets/dogs/schnauzer_08.webp",
+      "visualBounds": [
+        98,
+        185,
+        926,
+        870
+      ],
+      "colliderStatus": "not-authored"
+    },
+    {
+      "level": 9,
+      "name": "Цверг-важный",
+      "png": "assets/masters/dogs/schnauzer_09.png",
+      "webp": "public/assets/dogs/schnauzer_09.webp",
+      "url": "/assets/dogs/schnauzer_09.webp",
+      "visualBounds": [
+        258,
+        66,
+        731,
+        957
+      ],
+      "colliderStatus": "not-authored"
+    },
+    {
+      "level": 10,
+      "name": "Цверг-гигант",
+      "png": "assets/masters/dogs/schnauzer_10.png",
+      "webp": "public/assets/dogs/schnauzer_10.webp",
+      "url": "/assets/dogs/schnauzer_10.webp",
+      "visualBounds": [
+        63,
+        356,
+        962,
+        713
+      ],
+      "colliderStatus": "not-authored"
+    },
+    {
+      "level": 11,
+      "name": "Суперцверг",
+      "png": "assets/masters/dogs/schnauzer_11.png",
+      "webp": "public/assets/dogs/schnauzer_11.webp",
+      "url": "/assets/dogs/schnauzer_11.webp",
+      "visualBounds": [
+        64,
+        71,
+        960,
+        942
+      ],
+      "colliderStatus": "not-authored"
+    }
+  ]
+}
